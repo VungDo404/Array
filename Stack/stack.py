@@ -21,10 +21,29 @@ class stack:
             raise Exception('The stack is empty, can not perform this operation.')
         data = self.head.data
         self.head.data = self.head.next.data
+        temp = self.head.next
         self.head.next = self.head.next.next
+        del temp
         self.size-=1
         print(f'Pop: {data}')
         return data
+
+class Stack:
+    def __init__(self):
+        self.array = []
+        self.top = -1
+    def isEmpty(self):
+        return self.top == -1
+    def push(self, data):
+        self.array.append(data)
+        self.top += 1
+    def remove(self):
+        self.array.pop()
+        self.top -= 1
+    def peek(self):
+        if self.isEmpty():
+            raise Exception('The stack is empty')
+        return self.array[self.top]
 
 
 def printNode(head):
