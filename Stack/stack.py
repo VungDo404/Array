@@ -20,10 +20,13 @@ class stack:
         if self.isEmpty(): 
             raise Exception('The stack is empty, can not perform this operation.')
         data = self.head.data
-        self.head.data = self.head.next.data
-        temp = self.head.next
-        self.head.next = self.head.next.next
-        del temp
+        if self.size == 1:
+            self.head = None
+        else:
+            self.head.data = self.head.next.data
+            temp = self.head.next
+            self.head.next = self.head.next.next
+            del temp
         self.size-=1
         print(f'Pop: {data}')
         return data
@@ -77,25 +80,29 @@ class Stack:
 
 
 
-# st = stack()
-# print(st.isEmpty())
-# st.push(1)
-# st.push(2)
-# st.push(3)
-# st.push(4)
-# st.push(5)
-# st.pop()
-# printNode(st.head)
+st = stack()
+print(st.isEmpty())
+st.push(1)
+st.push(2)
+st.push(3)
+st.push(4)
+st.push(5)
+st.pop()
+st.pop()
+st.pop()
+st.pop()
+st.pop()
+printNode(st.head)
 
-stac = Stack()
-stac.push(1)
-stac.push(2)
-stac.push(3)
-stac.push(4)
-stac.push(5)
-stac.push(6)
+# stac = Stack()
+# stac.push(1)
+# stac.push(2)
+# stac.push(3)
+# stac.push(4)
+# stac.push(5)
+# stac.push(6)
 # stac.remove()
-print(stac.getMax())
-print(stac.getMin())
+# print(stac.getMax())
+# print(stac.getMin())
 # for i in stac.array:
 #     print(i)
