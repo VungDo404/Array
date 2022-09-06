@@ -65,10 +65,10 @@ class Stack:
         self.minStack(data)
         self.top += 1
     def remove(self):
-        self.array.pop()
         self._max.pop()
         self._min.pop()
         self.top -= 1
+        return self.array.pop()
     def peek(self):
         if self.isEmpty():
             raise Exception('The stack is empty')
